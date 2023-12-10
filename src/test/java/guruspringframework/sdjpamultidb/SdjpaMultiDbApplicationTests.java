@@ -31,9 +31,15 @@ class SdjpaMultiDbApplicationTests {
         assertThat(savedCC).isNotNull();
         assertThat(savedCC.getId()).isNotNull();
         assertThat(savedCC.getCreditCardNumber()).isNotNull();
+        assertThat(savedCC.getCreditCardNumber().equals("1234567890000"));
+        CreditCard fetchedCreditCard = creditCardService.getCreditCardById(savedCC.getId());
+
+        assertThat(fetchedCreditCard).isNotNull();
+        assertThat(fetchedCreditCard.getId()).isNotNull();
+        assertThat(fetchedCreditCard.getCreditCardNumber()).isNotNull();
     }
 
-    @Test
+        @Test
     void contextLoads() {
     }
 
