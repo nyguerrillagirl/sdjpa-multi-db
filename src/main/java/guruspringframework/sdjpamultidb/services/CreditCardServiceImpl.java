@@ -18,6 +18,7 @@ public class CreditCardServiceImpl implements CreditCardService {
     private final CreditCardRepository creditCardRepository;
     private final CreditCardPANRepository creditCardPANRepository;
 
+    @Transactional
     @Override
     public CreditCard getCreditCardById(Long id) {
         CreditCard creditCard = creditCardRepository.findById(id).orElseThrow();
